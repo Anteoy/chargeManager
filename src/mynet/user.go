@@ -6,8 +6,9 @@ type User struct {
 	Passwd  string
 	Friends string `json:"friends"`
 	Other   string `json:"other"`
+	appKey  string `json:"appKey"`
 }
 
-func NewUser(id int, name string, pass string, fri string, other string) *User {
-	return &User{id, name, pass, fri, other}
+func NewUser(id int, name string, pass string, fri string, other string,appKey string) *User {
+	return &User{id, name, pass, fri, other,appKey}
 }
