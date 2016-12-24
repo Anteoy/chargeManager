@@ -9,6 +9,7 @@ import (
 	"mynet/mysql"
 	"net/http"
 	"strconv"
+	"mynet/redis"
 )
 
 func main() {
@@ -91,6 +92,18 @@ func main() {
 	//	commonReturnModel.totle = 20
 	//	Controller.Data["json"] = &commonReturnModel
 	//})
+
+	beego.Post("/redis/test",func(ctx *context.Context){
+		r:=ctx.Request
+		r.ParseForm()
+		ids := r.Form["id"]
+		fmt.Println(ids)
+		passwds :=r.Form["passwd"]
+		fmt.Println(passwds)
+		redis.Set(ids[0],passwds[0])
+		fmt.Println("redis中已保存key为:"+ids[0]+"的value:"+redis.Get(ids[0]))
+		return
+	})
 	beego.Run()
 }
 
