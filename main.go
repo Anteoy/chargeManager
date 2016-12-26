@@ -10,6 +10,8 @@ import (
 	"net/http"
 	"strconv"
 	"mynet/redis"
+	"strings"
+	"io/ioutil"
 )
 
 func main() {
@@ -103,6 +105,30 @@ func main() {
 		redis.Set(ids[0],passwds[0])
 		fmt.Println("redis中已保存key为:"+ids[0]+"的value:"+redis.Get(ids[0]))
 		return
+	})
+
+	beego.Post("/test/phoneStatus", func(ctx *context.Context) {
+		client := &http.Client{}
+		//**************从字符串中读取内容
+		req,err := http.NewRequest("POST","http://localhost:9999/consumer/phoneArrearageQueryF",strings.NewReader("phone=15324658799"))
+		if err != nil {
+			// handle error
+			//fmt.Errorf(err) TODO
+		}
+		req.Header.Set("Content-Type", "application/x-www-form-urlencoded")
+		//req.Header.Set("appKey", "lemontest")
+		req.Header.Add("appKey", "lemontest")
+		req.Header.Set("Cookie", "appKey=lemontest")
+		resp, err := client.Do(req)
+
+		defer resp.Body.Close()
+
+		body, err := ioutil.ReadAll(resp.Body)
+		if err != nil {
+			// handle error
+		}
+
+		fmt.Println(string(body))
 	})
 	beego.Run()
 }
