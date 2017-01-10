@@ -17,12 +17,12 @@ type obj2 struct {
 }
 
 //从属不同对象的testMothod 返回值不同的接口实现
-func ( obj11 *obj1)iMethod(){
+func ( obj11 obj1)iMethod(){//这里传值和引用*obj1皆可
 	fmt.Println("testMothod go obj1")
 }
 
 //从属不同对象的testMothod 返回值不同的接口实现
-func ( obj11 *obj2)iMethod() {
+func ( obj11 obj2)iMethod() {//这里传值和引用*obj1皆可
 	fmt.Println("testMothod go obj2")
 }
 
@@ -48,8 +48,15 @@ func main(){
 	gorun(i)
 	gorun(obj2_)
 	list := [2]interfacetest{obj1_,obj2_}
-	//list := make([]interfacetest,2)
-	//list = append(list, obj1_)
-	//list = append(list, obj2_)
+
+	slice := []interfacetest{}
+	slice = append(slice, obj1_)
+	slice = append(slice, obj2_)
+	for index,value := range slice {
+		fmt.Println(index)
+		fmt.Println(value)
+	}
+	fmt.Println(len(slice))
+
 	fmt.Println(len(list))
 }
