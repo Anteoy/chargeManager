@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta name="author" content="Lemon.Abel">
+    <meta name="description" content="Insert description here">
+    <meta charset="utf-8">
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+    <title>ES信息查询</title>
+    <base href="<%=basePath%>">
+    <link rel="stylesheet" href="/static/resources/bootstrap-3.3.5/css/bootstrap.min.css">
+    <link rel="stylesheet" href="/static/resources/bootstrap-table/bootstrap-table.css"/>
+    <link rel="styleSheet" href="/static/resources/bootstrapValidator/css/bootstrapValidator.min.css">
+    <script src="/static/resources/jquery-1.11.1.min.js"></script>
+    <script src="/static/resources/bootstrap-3.3.5/js/bootstrap.min.js"></script>
+    <script src="/static/resources/bootstrapValidator/js/bootstrapValidator.min.js"></script>
+    <script src="/static/resources/bootstrap-table/bootstrap-table.js"></script>
+    <script src="/static/resources/bootstrap-table/locale/bootstrap-table-zh-CN.js"></script>
+    <script src="/static/js/power/common.js"></script>
+    <script src="/static/js/power/blackListQuery/esInfoQuery.js"></script>
+    <style type="text/css">
+        @media screen{
+            .leftLabel{
+                width:30%!important;
+            }
+        }
+    </style>
+</head>
+<body>
+<nav class="navbar navbar-default" role="navigation">
+    <div class="container-fluid">
+        <div class="navbar-header">
+            <a class="navbar-brand" href="javascript:void(0)">提报信息查询</a>
+        </div>
+        <div>
+            <ul class="nav navbar-nav tab">
+                <li class="active"><a href="blackListQuery.do">ES信息查询</a></li>
+            </ul>
+            <ul class="nav navbar-nav navbar-right">
+                <li><a href="roleList.do"><span class="glyphicon glyphicon-log-in"></span>返回主页</a></li>
+            </ul>
+        </div>
+    </div>
+</nav>
+<div class="panel panel-default">
+    <div class="panel-body">
+        <div class="panel panel-default">
+            <div class="panel-heading">查询条件(请至少输入一个查询条件)</div>
+            <div class="panel-body">
+                <div class="col-lg-12 col-md-12">
+                    <form id="dataForm007" role="form" class="form form-inline" >
+                        <div class="form-group col-lg-3 col-md-6 col-xs-12">
+                            <div class="input-group">
+                                <div class="input-group-addon leftLabel">
+                                    分　类
+                                </div>
+                                <select id="approveStatus" class="form-control">
+                                    <option value="1">自有黑名单</option>
+                                    <option value="2">人员</option>
+                                    <option value="3">案件</option>
+                                </select>
+                            </div>
+                        </div>
+                        <div class="form-group col-lg-3 col-md-6 col-xs-12">
+                            <div class="input-group">
+                                <div class="input-group-addon leftLabel">
+                                    电话号码
+                                </div>
+                                <input type="text" id="phone" name="phone" class="form-control"
+                                       maxlength="12" placeholder="电话号码">
+                            </div>
+                        </div>
+                        <div class="form-group col-lg-3 col-md-6 col-xs-12">
+                            <div class="input-group">
+                                <div class="input-group-addon leftLabel">
+                                    身份证号
+                                </div>
+                                <input type="text" id="idCard" name="idCard" class="form-control"
+                                       maxlength="18" placeholder="身份证号">
+                            </div>
+                        </div>
+                        <div id="bankCardH" class="form-group col-lg-3 col-md-6 col-xs-12">
+                            <div class="input-group">
+                                <div class="input-group-addon leftLabel">
+                                    银行卡号
+                                </div>
+                                <input type="text" id="bankCardNo" name="bankCardNo" class="form-control" maxlength="19"
+                                       placeholder="银行卡号">
+                            </div>
+                        </div>
+                        <div class="clearfix"></div>
+                        <div class="col-lg-offset-10 col-lg-2 col-md-offset-10 col-md-2" style="margin-top:40px;">
+                            <button type="submit" id="queryBtn" class="btn btn-primary">查询</button>
+                            <button type="reset" id="resetBtn" class="btn btn-info">重置</button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+        <div id="toolbar">
+        </div>
+        <table id="tb_case" data-use-row-attr-func="true" data-reorderable-rows="true"></table>
+    </div>
+</div>
+</body>
+</html>

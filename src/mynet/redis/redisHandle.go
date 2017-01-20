@@ -79,20 +79,20 @@ func AddUser(user *mynet.User) bool {
 	return true
 }
 
-func GetUser(id int) *mynet.User {
-	c := RedisPool.Get()
-	defer c.Close()
-
-	name := GetFromConn(c, "user:"+strconv.Itoa(id)+":name")
-	pass := GetFromConn(c, "user:"+strconv.Itoa(id)+":pass")
-	friends := GetFromConn(c, "user:"+strconv.Itoa(id)+":friends")
-	other := GetFromConn(c, "user:"+strconv.Itoa(id)+":other")
-	defer func() {
-		if r := recover(); r != nil {
-			log.Panicln("获取id为" + strconv.Itoa(id) + "用户信息出错")
-			log.Panic(r)
-		}
-	}()
-	user := mynet.NewUser(id, name, pass, friends, other)
-	return user
-}
+//func GetUser(id int) *mynet.User {
+//	c := RedisPool.Get()
+//	defer c.Close()
+//
+//	name := GetFromConn(c, "user:"+strconv.Itoa(id)+":name")
+//	pass := GetFromConn(c, "user:"+strconv.Itoa(id)+":pass")
+//	friends := GetFromConn(c, "user:"+strconv.Itoa(id)+":friends")
+//	other := GetFromConn(c, "user:"+strconv.Itoa(id)+":other")
+//	defer func() {
+//		if r := recover(); r != nil {
+//			log.Panicln("获取id为" + strconv.Itoa(id) + "用户信息出错")
+//			log.Panic(r)
+//		}
+//	}()
+//	user := mynet.NewUser(id, name, pass, friends, other)
+//	return user
+//}
