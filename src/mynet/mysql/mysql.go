@@ -12,7 +12,7 @@ var db *sql.DB
 
 func init() {
 	var err error
-	db, err = sql.Open("mysql", "root:123@tcp(localhost:3306)/godoob?charset=utf8")
+	db, err = sql.Open("mysql", "root:123@tcp(localhost:3306)/chargeManager?charset=utf8")
 	checkErr(err)
 	db.SetMaxOpenConns(2000)
 	db.SetMaxIdleConns(1000)
@@ -29,8 +29,8 @@ func InsertChatContent(sendid string, content string) bool {
 	return true
 }
 
-func GetUserForEmail(email string) *mynet.User {
-	rows, err := db.Query(`select * from user where email = ?`, email)
+func GetUserForEmail(id string) *mynet.User {
+	rows, err := db.Query(`select * from user where email = ?`, id)
 	checkErr(err)
 	if !checkErr(err) {
 		for rows.Next() {
@@ -39,8 +39,9 @@ func GetUserForEmail(email string) *mynet.User {
 			var passwd string
 			var friends string
 			var other string
+			var email string
 			rows.Columns()
-			err = rows.Scan(&id, &name, &passwd, &friends, &other)
+			err = rows.Scan(&id, &name, &passwd, &friends, &other,&email)
 			checkErr(err)
 			user := &mynet.User{Id: id, Name: name, Passwd: passwd, Friends: friends, Other: other}
 			return user
