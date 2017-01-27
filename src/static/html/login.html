@@ -1,115 +1,151 @@
 <!DOCTYPE html>
+<!--[if lt IE 7]> <html class="lt-ie9 lt-ie8 lt-ie7" lang="en"> <![endif]-->
+<!--[if IE 7]> <html class="lt-ie9 lt-ie8" lang="en"> <![endif]-->
+<!--[if IE 8]> <html class="lt-ie9" lang="en"> <![endif]-->
+<!--[if gt IE 8]><!-->
 <html lang="en">
-
+<!--<![endif]-->
 <head>
-
-    <meta charset="utf-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>doob登录页面</title>
-
-    <!-- CSS -->
-    <link rel="stylesheet" href="http://fonts.googleapis.com/css?family=Roboto:400,100,300,500">
-    <link href="//cdn.bootcss.com/bootstrap/3.3.6/css/bootstrap.min.css" rel="stylesheet">
-    <link href="//cdn.bootcss.com/font-awesome/4.5.0/css/font-awesome.min.css" rel="stylesheet">
-    <link href="/static/css/login.css" rel="stylesheet">
-    <link href="/static/css/login1.css" rel="stylesheet">
-    <link href="/static/css/bootstrap-datetimepicker.css" rel="stylesheet">
+<meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
+<title>柠檬风险费用系统登录</title>
+<!-- <link rel="stylesheet" href="resources/css/loginStyle.css"> -->
+<link rel="stylesheet" href="/static/resources/css/style.css">
+<link href="/static/resources/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+<!-- <script type="text/javascript" src="/static/resources/js/jquery.easyui.min.js"></script> -->
+<script type="text/javascript" src="/static/resources/jquery-1.11.1.min.js"></script>
+<script type="text/javascript" src="/static/resources/js/jquery.cookie.js"></script>
+<script type="text/javascript" src="/static/js/common.js"></script>
+<!--[if lt IE 9]><script src="//html5shim.googlecode.com/svn/trunk/html5.js"></script><![endif]-->
+<link rel="icon" href="favicon.ico" />
 </head>
-
 <body>
-
-    <!-- Top content -->
-<div class="top-content">
-    <div class="inner-bg">
-        <div class="container">
-            <div class="row">
-                <div class="col-sm-8 col-sm-offset-2 text">
-                    <font size="13"><strong>doob is sweet</strong></font>
-                    <div class="description">
-                    	<p>
-                        	科技成就未来，<strong>doob</strong>助你腾飞!
-                    	</p>
-                    </div>
-                </div>
-            </div>
-            <div class="row">
-                <div class="col-sm-6 col-sm-offset-3 form-box">
-                	<div class="form-top">
-                		<div class="form-top-left">
-                			<h2>登录doob chat</h2>
-                    		<p>请输入你的用户名和密码：</p>
-                		</div>
-                		<div class="form-top-right">
-                			<i class="fa fa-key"></i>
-                		</div>
-                    </div>
-                    <div class="form-bottom">
-	                    <form role="form" action="login" method="post" class="login-form">
-	                    	<div class="form-group">
-	                    		<label class="sr-only" for="form-username">Username</label>
-	                        	<input type="text" name="id" placeholder="Username..." class="form-username form-control" id="form-username">
-	                        </div>
-	                        <div class="form-group">
-	                        	<label class="sr-only" for="form-password">Password</label>
-	                        	<input type="password" name="passwd" placeholder="Password..." class="form-password form-control" id="form-password">
-	                        </div>
-	                        <button type="submit" class="btn" id="login">登录!</button>
-	                    </form>
-                    </div>
-                </div>
-            </div>
-				<!-- 模态框（Modal） -->
-					<div class="modal fade" id="myModal" tabindex="-1" role="dialog" 
-					   aria-labelledby="myModalLabel" aria-hidden="true">
-						<div class="modal-dialog">
-							<div class="modal-content">
-								<div class="modal-header">
-									<button type="button" class="close" 
-									data-dismiss="modal" aria-hidden="true">
-									&times;
-									</button>
-									<h4 class="modal-title" id="myModalLabel">
-								 	<h2 style="color:grren">填写注册信息</h2>
-									</h4>
-								</div>
-									<div class="modal-body">
-										<input type="text" name="denglm" placeholder="此名以后将作为登录名..." class="form-username form-control" id="denglm">
-										<input type="text" name="mim" placeholder="密码..." class="form-password form-control" id="mim">
-										<input type="text" name="bh" placeholder="输入你在公司的编号..." class="form-username form-control" id="bh">
-										<input type="text" name="姓名" placeholder="输入你的真实姓名..." class="form-username form-control" id="xingm">
-									</div>
-								         <div class="modal-footer">
-								            <button type="button" class="btn btn-default" 
-								               data-dismiss="modal">关闭
-								            </button>
-								            <button type="button" class="btn btn-primary" id="zhuce">
-								               	注册
-								            </button>
-								         </div>
-								      </div><!-- /.modal-content -->
-								</div><!-- /.modal -->
-							</div>
-							<div class="row">
-                    			<div class="col-sm-6 col-sm-offset-3 social-login">
-                    				<h3>...或者在这里注册:</h3>
-                    				<div class="social-login-buttons">
-                        			<button class="btn btn-primary btn-lg" data-toggle="modal" data-target="#myModal">
-									注册
-								</button>
-                    	</div>
-                    </div>
-                </div>
-            </div>
-        </div>  
-    </div>
+	<div class="main-container loginBox" style="position: absolute;z-index: 999;width: 100%;height: 100%;">
+		<div class="loginHead"><img src="/static/images/logosystem.png" alt="" style="height:60px;margin-top:5px;"></div>
+		<div class="loginContent">
+			<span class="firstLogin">账户登录</span>
+			<!--<span style="float:right;cursor: pointer" ><img src="/static/images/loginColse.png" alt="" ></span>-->
+			<div><img src="/static/images/loginLine.png" alt="" class="img-responsive"></div>
+			<div style="margin-top: 30px;margin-left: 80px;">
+				 <input type="text" placeholder="用户名" id="username" class="loginUser loginUserbg1">
+			</div>
+			<div style="margin-top: 30px;margin-left: 80px;">
+				<input type="password" placeholder="密码" id="password" class="loginUser loginUserbg2">
+			</div>
+			<div style="margin-top: 30px;margin-left: 80px;">
+				<input type="checkbox"  class="loginRember" style="vertical-align: top"> <span class="loginRemberWord">记住密码</span>
+			</div>
+			<div style="margin-top: 30px;margin-left: 120px;" class="loginBtn fl" id="commit"  onclick="checkLogin()">
+				登&nbsp录
+			</div>
+			<div style="margin-top: 30px;margin-left: 30px;" class="loginBtnreset fl" onclick="reset()">
+				重&nbsp置
+			</div>
+		</div>
+		<div class="loginFoot">©Copyright 2016 Lemon Technology Co.,Ltd.</div>
+</div>
 </body>
-
-
-<!-- Javascript -->
-<script src="//cdn.bootcss.com/jquery/1.11.2/jquery.min.js"></script>
-<script src="//cdn.bootcss.com/bootstrap/3.0.3/js/bootstrap.min.js"></script>
-<script src="//cdn.bootcss.com/jquery-backstretch/2.0.4/jquery.backstretch.min.js"></script>
-<script src="/static/js/login.js"></script>
-        
+<canvas id="c" style="height: 100%;width: 100%"></canvas>
+<script type="text/javascript">
+	var c = document.getElementById("c");
+	var ctx = c.getContext("2d");
+	c.width = window.innerWidth;
+	c.height = window.innerHeight;
+	//	c.width=window.screen.availWidth;
+	//	c.height=window.screen.availHeight;
+	console.log(c.height)
+	//				ctx.fillRect(0,0,100,100);
+	//				a,b,c,d分别代表x方向偏移,y方向偏移,宽，高
+	var string1 = "1203456gzg987";
+	string1.split("");
+	var fontsize = 20;
+	columns = c.width / fontsize;
+	var drop = [];
+	for (var x = 0; x < columns; x++) {
+		drop[x] = 0;
+	}
+	function drap() {
+		ctx.fillStyle = "rgba(0,0,0,0.07)";
+		//			ctx.fillStyle="rgba(236, 97, 16,0.67)";
+		ctx.fillRect(0, 0, c.width, c.height);
+		ctx.fillStyle = "#0F0";
+		//		ctx.fillStyle="#EC6110";
+		ctx.font = fontsize + "px arial";
+		for (var i = 0; i < drop.length; i++) {
+			var text1 = string1[Math.floor(Math.random() * string1.length)];
+			ctx.fillText(text1, i * fontsize, drop[i] * fontsize);
+			drop[i]++;
+			if (drop[i] * fontsize > c.height && Math.random() > 0.9) {//90%的几率掉落
+				drop[i] = 0;
+			}
+		}
+	}
+	setInterval(drap, 20);
+	$(document).ready(function() {
+		if ($.cookie("rmbUser") == "true") {
+			$("#ck_rmbUser").prop("checked", true);
+			$("#username").val($.cookie("username"));
+			//$("#password").remove();
+			//$("#pass").append("<input id='password' type='password' class='txt2'/>");
+			$("#password").val($.cookie("password"));
+			//checkLogin();
+		}
+		$("input").keydown(function() {
+			if (event.keyCode == 13) {
+				checkLogin();
+			}
+		})
+	});
+	function check() {
+		var username = $("#username").val();
+		var password = $("#password").val();
+		if (username == "" || username == "请输入用户名") {
+			alert("请输入用户名!");
+			$("#username").focus();
+			return false;
+		}
+		if (password == "" || password == "请输入密码") {
+			alert("请输入密码!");
+			$("#password").focus();
+			return false;
+		}
+		$("#tip").text("");
+		return true;
+	}
+	function checkLogin() {
+		//if(check())
+		var username = encode64($("#username").val());
+		var password = encode64($("#password").val());
+		window.location="login?id="+username+"&passwd="+password;
+		/*$.ajax({
+			url : 'login',
+			data : {
+				id : username,
+				passwd : password
+			},
+			dataType : 'json',
+			method : 'POST',
+			success : function(data) {
+				var json = eval(data);
+				var result = json.info;
+				if (result == '0') {
+					//window.location="charts.html?userLoginName="+username;
+					if(typeof (json.url) != "undefined") {
+						window.location = json.url;
+					} else {
+						alert("用户没有分配权限，请联系管理员！！！");
+					}
+				} else {
+					alert(result);
+				}
+			},
+			error : function(XMLHttpRequest, textStatus, errorThrown) {
+				//alert('查询数据错误,详细信息：[' + errorThrown + ']');
+			}
+		});*/
+	}
+	function reset(){
+	$("#username").val("");
+	$("#password").val("");
+	}
+</script>
 </html>
